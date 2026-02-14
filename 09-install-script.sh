@@ -7,7 +7,11 @@ then
 echo "ERROR:: you must have sudo access to exicute this script"
 exit 1 #other than 0
 fi
-yum install mysql-server -y
+sudo dnf update -y
+sudo dnf install mariadb105-server -y
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
 
 if [ $? -ne 0 ]
 then
@@ -16,8 +20,7 @@ then
 else
     echo "Installing MySQL... SUCCESS"
 fi
-yum install git -y
-
+sudo dnf install git -y
 if [ $? -ne 0 ]
 then
     echo "Installing GIT... FAILURE"
