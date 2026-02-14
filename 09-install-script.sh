@@ -7,7 +7,8 @@ then
 echo "ERROR:: you must have sudo access to exicute this script"
 exit 1 #other than 0
 fi
-dnf install mysql -y
+yum install mysql-server -y
+
 if [ $? -ne 0 ]
 then
     echo "Installing MySQL... FAILURE"
@@ -15,7 +16,8 @@ then
 else
     echo "Installing MySQL... SUCCESS"
 fi
-dnf install git -y
+yum install git -y
+
 if [ $? -ne 0 ]
 then
     echo "Installing GIT... FAILURE"
